@@ -16,17 +16,20 @@ def max_n_minus_one_product(A):
             negative ^= 1
             if A[i] > A[min_neg]:
                 min_neg = i
-                if not negative and not non_negative_count:
-                    skip_index = i
             if A[i] < A[max_neg]:
                 max_neg = i
-                if negative:
-                    skip_index = i
         else:
             non_negative_count += 1
             if A[i] < A[min_pos]:
                 min_pos = i
-    if not negative_count or (not negative and non_negative_count > 0):
+
+    if negative_count == 0:
+        skip_index = min_pos
+    elif negative:
+        skip_index = min_neg
+    elif positive_count == 0:
+        skip_index = max_neg
+    else:
         skip_index = min_pos
 
     product = 1
