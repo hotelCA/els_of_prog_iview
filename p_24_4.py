@@ -5,7 +5,7 @@ def max_n_minus_one_product(A):
     if not A:
         return None
 
-    min_pos = max_neg = min_neg = 0
+    min_pos, max_neg, min_neg = 0, 0, 0
     negative = 0
     non_negative_count = 0
     negative_count = 0
@@ -14,7 +14,7 @@ def max_n_minus_one_product(A):
         if A[i] < 0:
             negative_count += 1
             negative ^= 1
-            if A[i] > A[min_neg]:
+            if A[i] > A[min_neg] or A[min_neg] > 0:
                 min_neg = i
             if A[i] < A[max_neg]:
                 max_neg = i
@@ -22,7 +22,7 @@ def max_n_minus_one_product(A):
             non_negative_count += 1
             if A[i] < A[min_pos]:
                 min_pos = i
-
+    
     if negative_count == 0:
         skip_index = min_pos
     elif negative:
