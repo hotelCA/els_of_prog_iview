@@ -8,9 +8,9 @@ def least_common_ancestors(tree, node1, node2):
             return 0
         left_subtree = traverse(tree.left)
         right_subtree = traverse(tree.right)
-
         
         if left_subtree == 1 and right_subtree == 1:
+            # each node comes from a separate subtree
             lca = tree
             return 0
         elif left_subtree == 2 or right_subtree == 2:
