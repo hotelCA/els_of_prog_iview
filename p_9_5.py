@@ -26,6 +26,3 @@ tree[0].data = tree[1].data = tree[3].data = tree[5].data = 1
 tree[4].data = 1
 
 print(find_sum(tree[0]))
-    
-    
-    
