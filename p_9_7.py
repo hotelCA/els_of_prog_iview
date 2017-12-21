@@ -4,16 +4,17 @@ def traverse_in_order_without_recursion(tree):
     if not tree:
         return False
     stack = [tree]
-    popped_nodes = set()
+    last_inserted = tree
     while stack:
-        if stack[-1].left and stack[-1].left not in popped_nodes:
+        if stack[-1].left and stack[-1] is last_inserted:
+            last_inserted = stack[-1].left
             stack.append(stack[-1].left)
         else:
             popped_node = stack.pop()
             print(str(popped_node.data) + ', ', end='')
-            popped_nodes.add(popped_node)
             if popped_node.right:
                 stack.append(popped_node.right)
+                last_inserted = popped_node.right
                 
 tree = [BinaryTreeNode(0) for _ in range(9)]
 tree[0].left, tree[0].right = tree[1], tree[2]
