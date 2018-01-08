@@ -1,16 +1,16 @@
 import math
 
 def find_sqrt(x):
-    x = 1 / x if 0 < x < 1 else x
-    dividend = current = x / 2
+    y = 1 / x if 0 < x < 1 else x
+    dividend = current = y * 0.5
     
-    while not math.isclose(current * current, x):
-        dividend /= 2
-        if current * current > x:
-            current = current + dividend
+    while not math.isclose(current * current, y):
+        dividend *= 0.5
+        if current * current > y:
+            current -= dividend
         else:
-            current = current - divident
+            current += dividend
 
-    return 1/current if 0 < x < 1 else current 
+    return 1/current if 0 < x < 1 else current
     
-print(find_sqrt(16))
+print(find_sqrt(15.0))
