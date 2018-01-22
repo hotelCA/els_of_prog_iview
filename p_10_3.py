@@ -21,4 +21,3 @@ def sort_k_sorted_array(A, k):
 A = [1,4,2,3,6,7,5,9,8]
 sort_k_sorted_array(A, 3);
 print(A)
-        
