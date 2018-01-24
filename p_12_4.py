@@ -14,6 +14,7 @@ def find_LCA(n_1, n_2):
             return n_2
         n_1 = n_1.parent if n_1 else None
         n_2 = n_2.parent if n_2 else None
+    raise ValueError('The two nodes are not from the same tree')
         
 tree = [BinaryTreeNode(i) for i in range(0, 9)]
 tree[0].left, tree[0].right = tree[1], tree[2]
