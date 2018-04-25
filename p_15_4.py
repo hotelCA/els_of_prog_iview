@@ -4,7 +4,6 @@ def find_superset(A):
     result = [[]]
     
     def find_individual_sets(B, start):
-        print("B: {}".format(B))
         for i in range(start, len(A)):
             new_set = []
             if B is None:
@@ -12,7 +11,6 @@ def find_superset(A):
             else:
                 new_set = B[:]
                 new_set.append(A[i])
-            print(new_set)
             result.append(new_set)
             find_individual_sets(new_set, i+1)
             
